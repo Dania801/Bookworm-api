@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import auth from './routes/auth';
 import signup from './routes/signup';
 import confirm from './routes/confirm';
+import books from './routes/books';
 
 const app = express();
 var dbURI = 'mongodb://localhost:27017/bookworm';
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use('/api/auth', auth);
 app.use('/api/signup', signup);
 app.use('/api/auth/confirmation', confirm);
+app.use('/api/books', books);
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
